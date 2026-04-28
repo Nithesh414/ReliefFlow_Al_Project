@@ -1,1 +1,122 @@
-<!DOCTYPE html><html><head><link rel='stylesheet' href='css/style.css'></head><body onload='renderRequests()'><div class='main'><h1>Requests</h1><input id='qname' placeholder='Need Type'><input id='qloc' placeholder='Location'><select id='qpri'><option>High</option><option>Medium</option><option>Low</option></select><button onclick='addRequest()'>Create</button><div id='requests'></div></div><script src='js/app.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReliefFlow AI | Requests</title>
+  <link rel="stylesheet" href="Css/style.css" />
+</head>
+<body onload="initApp(); loadRequests();">
+
+  <aside class="sidebar">
+    <div class="logo-box">
+      <div class="logo">RF</div>
+      <div>
+        <h2>ReliefFlow</h2>
+        <span>AI Allocation</span>
+      </div>
+    </div>
+
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="resources.html">Resources</a>
+      <a href="requests.html">Requests</a>
+      <a href="allocation.html">Smart Allocation</a>
+      <a href="history.html">History</a>
+    </nav>
+
+    <button class="logout-btn" onclick="logoutUser()">Logout</button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>Request Center</h1>
+        <p>Create high, medium or low priority resource requests.</p>
+      </div>
+    </header>
+
+    <section class="panel form-panel">
+      <h2>Create Request</h2>
+
+      <div class="form-grid">
+        <div class="input-group">
+          <label>Requester Name</label>
+          <input id="requesterName" placeholder="Patient / Staff / Department" />
+        </div>
+
+        <div class="input-group">
+          <label>Need Type</label>
+          <select id="requestNeed">
+            <option>Ambulance</option>
+            <option>Bed</option>
+            <option>Food Kit</option>
+            <option>Volunteer</option>
+            <option>Shelter</option>
+            <option>Lab</option>
+            <option>Classroom</option>
+            <option>Medicine</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Location</label>
+          <select id="requestLocation">
+            <option>Zone A</option>
+            <option>Zone B</option>
+            <option>Zone C</option>
+            <option>Zone D</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Priority</label>
+          <select id="requestPriority">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Description</label>
+        <textarea id="requestDesc" placeholder="Explain the emergency/resource need"></textarea>
+      </div>
+
+      <button class="primary-btn" onclick="createRequest()">Create Request</button>
+    </section>
+
+    <section class="panel">
+      <div class="table-head">
+        <h2>Requests</h2>
+
+        <select id="requestFilter" onchange="loadRequests()">
+          <option value="All">All</option>
+          <option value="Pending">Pending</option>
+          <option value="Assigned">Assigned</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Requester</th>
+              <th>Need</th>
+              <th>Location</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="requestTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="Js/app.js"></script>
+</body>
+</html>
