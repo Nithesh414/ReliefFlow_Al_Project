@@ -1,1 +1,41 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>ReliefFlow AI</title><link rel='stylesheet' href='Css/style.css'></head><body class='login-body'><div class='login-card'><h1>ReliefFlow AI</h1><input id='username' placeholder='Name'><select id='role'><option>Admin</option><option>Staff</option><option>User</option></select><button onclick='login()'>Login</button></div><script src='Js/app.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReliefFlow AI | Login</title>
+  <link rel="stylesheet" href="Css/style.css" />
+</head>
+<body class="auth-page">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <main class="auth-card">
+    <div class="brand-mark">RF</div>
+    <h1>ReliefFlow AI</h1>
+    <p>Smart resource allocation for emergencies, hospitals, colleges and NGOs.</p>
+
+    <div class="input-group">
+      <label>Your Name</label>
+      <input type="text" id="loginName" placeholder="Enter your name" />
+    </div>
+
+    <div class="input-group">
+      <label>Select Role</label>
+      <select id="loginRole">
+        <option value="Admin">Admin</option>
+        <option value="Staff">Staff</option>
+        <option value="Volunteer">Volunteer</option>
+      </select>
+    </div>
+
+    <button class="primary-btn full" onclick="loginUser()">Enter Dashboard</button>
+
+    <div class="demo-note">
+      Frontend-only MVP • LocalStorage • Smart rule-based AI
+    </div>
+  </main>
+
+  <script src="Js/app.js"></script>
+</body>
+</html>
