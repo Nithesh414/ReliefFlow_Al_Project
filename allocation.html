@@ -1,1 +1,57 @@
-<!DOCTYPE html><html><head><link rel='stylesheet' href='css/style.css'></head><body><div class='main'><h1>Smart Allocation</h1><button onclick='autoAllocate()'>Run Allocation</button><div id='allocmsg'></div></div><script src='js/app.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReliefFlow AI | Smart Allocation</title>
+  <link rel="stylesheet" href="Css/style.css" />
+</head>
+<body onload="initApp(); loadAllocationPage();">
+
+  <aside class="sidebar">
+    <div class="logo-box">
+      <div class="logo">RF</div>
+      <div>
+        <h2>ReliefFlow</h2>
+        <span>AI Allocation</span>
+      </div>
+    </div>
+
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="resources.html">Resources</a>
+      <a href="requests.html">Requests</a>
+      <a href="allocation.html">Smart Allocation</a>
+      <a href="history.html">History</a>
+    </nav>
+
+    <button class="logout-btn" onclick="logoutUser()">Logout</button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>Smart Allocation</h1>
+        <p>AI-like rule engine assigns best available resource.</p>
+      </div>
+
+      <button class="primary-btn" onclick="autoAllocateAll()">Auto Allocate All</button>
+    </header>
+
+    <section class="two-col">
+      <div class="panel">
+        <h2>Pending Requests</h2>
+        <div id="pendingRequestList" class="card-list"></div>
+      </div>
+
+      <div class="panel ai-panel">
+        <h2>AI Decision Panel</h2>
+        <p id="allocationAiText" class="ai-text">Select or run allocation to view recommendation.</p>
+        <div id="allocationResult"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="Js/app.js"></script>
+</body>
+</html>
