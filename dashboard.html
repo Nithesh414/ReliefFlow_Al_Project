@@ -1,1 +1,89 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Dashboard</title><link rel='stylesheet' href='Css/style.css'></head><body onload='loadDashboard()'><div class='sidebar'><a href='dashboard.html'>Dashboard</a><a href='resources.html'>Resources</a><a href='requests.html'>Requests</a><a href='allocation.html'>Allocation</a><a href='history.html'>History</a></div><div class='main'><h1>Dashboard</h1><div id='stats'></div><p id='ai'></p></div><script src='Js/app.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReliefFlow AI | Dashboard</title>
+  <link rel="stylesheet" href="Css/style.css" />
+</head>
+<body onload="initApp(); loadDashboard();">
+
+  <aside class="sidebar">
+    <div class="logo-box">
+      <div class="logo">RF</div>
+      <div>
+        <h2>ReliefFlow</h2>
+        <span>AI Allocation</span>
+      </div>
+    </div>
+
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="resources.html">Resources</a>
+      <a href="requests.html">Requests</a>
+      <a href="allocation.html">Smart Allocation</a>
+      <a href="history.html">History</a>
+    </nav>
+
+    <button class="logout-btn" onclick="logoutUser()">Logout</button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p id="welcomeText">Welcome back</p>
+      </div>
+      <button class="secondary-btn" onclick="seedDemoData()">Load Demo Data</button>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span>Total Resources</span>
+        <h2 id="totalResources">0</h2>
+      </div>
+
+      <div class="stat-card">
+        <span>Available</span>
+        <h2 id="availableResources">0</h2>
+      </div>
+
+      <div class="stat-card">
+        <span>Pending Requests</span>
+        <h2 id="pendingRequests">0</h2>
+      </div>
+
+      <div class="stat-card">
+        <span>Allocations</span>
+        <h2 id="totalAllocations">0</h2>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="panel">
+        <h2>AI Recommendation</h2>
+        <p id="aiInsight" class="ai-text"></p>
+      </div>
+
+      <div class="panel">
+        <h2>System Health</h2>
+        <div class="progress-row">
+          <span>Resource Utilization</span>
+          <strong id="usagePercent">0%</strong>
+        </div>
+        <div class="progress">
+          <div id="usageBar"></div>
+        </div>
+        <p class="muted">Based on allocated resources stored in LocalStorage.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Recent Activity</h2>
+      <div id="recentActivity" class="activity-list"></div>
+    </section>
+  </main>
+
+  <script src="Js/app.js"></script>
+</body>
+</html>
